@@ -1,5 +1,7 @@
 import {app} from "./app.js"
 import cors from '@fastify/cors'
+import { database } from "./database/index.js"
+import 'dotenv/config'
 
 
 async function server() {
@@ -15,6 +17,12 @@ async function server() {
     }).then(() => {
         console.log('HTTP Server is running on PORT: ' + process.env.PORT)
     })
+
+    const query = await database('marcas').select();
+    console.log('Query :', query)
+
+    // database.raw('SELECT * FROM marcas;')
+    // .then(result => console.log(result))
 }
 
 server();

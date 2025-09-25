@@ -1,5 +1,6 @@
 //base_url = 'http://localhost:3333/'
 //GET {{$base_url}}
+
 GET http://localhost:3333/
 
 ###
